@@ -1,23 +1,78 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Map</title>
+    <title>API Demo</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 100%;
-      }
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="cityscopeapi.css">
   </head>
   <body>
-    <div id="map"></div>
+    <div>
+
+      <div class="map-input row">
+        <div class="col-xs-12 
+                    col-sm-6 col-sm-offset-3
+                    col-md-4 col-md-offset-4
+                    well">
+          <label>Location: </label>
+          <input id="address_input" type="text" onkeydown="return triggerSubmit(event)"/>
+          <button id="submit_address">Search</button>
+        </div>        
+      </div>
+
+      <div class="control-panel">
+        <div class="col-xs-12 
+                    col-sm-12
+                    col-md-12">
+            <h3>Layers</h3>
+            <hr class="separator">
+
+            <div id="controls">
+              <span class="an-layers">
+                <input type="checkbox" name="layertype"> 
+                <label>FLickr</label><br />
+              </span> 
+              <span class="an-layers">
+                <input type="checkbox" name="layertype"> 
+                <label>FLickr</label><br />
+              </span> 
+              <span class="an-layers">
+                <input type="checkbox" name="layertype"> 
+                <label>FLickr</label><br />
+              </span> 
+              <span class="an-layers">
+                <input type="checkbox" name="layertype"> 
+                <label>FLickr</label><br />
+              </span> 
+              <span class="an-layers">
+                <input type="checkbox" name="layertype"> 
+                <label>FLickr</label><br />
+              </span> 
+              <span class="an-layers">
+                <input type="checkbox" name="layertype"> 
+                <label>FLickr</label><br />
+              </span> 
+            </div>
+            <hr class="separator">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.</p> 
+
+          </div>
+
+          <footer>
+              <hr class="separator">
+              <label>Anwin Sen P</label><br />
+              <label><a href="http://www.anwinsen.com" target="blank">www.anwinsen.com</a></label>
+          </footer>          
+        </div>
+      <div id="map"></div>      
+    </div>
+
     <script type="text/javascript" src="Maps.js"></script>
-    async defer></script>
   </body>
 </html>

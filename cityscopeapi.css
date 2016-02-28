@@ -1,0 +1,61 @@
+html, body {
+height: 100vh;
+margin: 0;
+padding: 0;
+}
+
+#map {
+	height: 100vh;
+}
+
+.map-input {
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+	z-index: 100;
+	width: 100%;
+}
+
+.well {
+	text-align: center;
+	opacity: 0.8;
+	padding: 3px;
+	border-radius: 5px;
+}
+
+.separator {
+	margin: 5px 0 5px 0;
+	color: #111111;
+	border-color: #111111;
+}
+
+.control-panel {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	height: 96vh;
+	width: 200px;
+	z-index: 101;
+	background-color: #EEEEEE;
+	opacity: 0.8;
+	padding: 5px 10px 10px 20px;
+	border-radius: 15px;
+}
+
+.an-layers {
+	vertical-align: middle;
+	padding-left: 10px;
+}
+
+.an-layers > input {
+	vertical-align: top;
+}
+
+.control-panel > footer {
+	position: absolute;
+	bottom: 10px;
+}
+
+.an-layers > label {
+	vertical-align: bottom;
+}
