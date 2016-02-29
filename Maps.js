@@ -1,4 +1,4 @@
-var Running = false;
+var GetRequests = [];
 var Map;
 var Geocoder;
 var GoogleMapsAPIKey = 'AIzaSyBCdNVOM-Zie0oZjy4Dg-4ImIXFAHvfNx0';
@@ -37,8 +37,8 @@ function markPhotos(photos) {
 			center: photoLocation,
 			radius: 200,
 			map: Map,
-			fillColor: '#5C0254',
-			strokeColor: '#5C0254',
+			fillColor: '#EC0033',
+			strokeColor: '#EC0033',
 			fillOpacity: 0.9
 		}
 
@@ -51,22 +51,22 @@ function markPhotos(photos) {
 
 			if (distance <= marker.getRadius()) {
 				marker.photoCount += 1;
-				var color = '#5C0254'
+				var color = '#EC0033';
 
 				if(marker.photoCount < 200) {
-					color = '#665AA3'
+					color = '#F39800';
 				} else if(marker.photoCount < 500) {
-					color = '#02235C'
+					color = '#FCC800';
 				} else if(marker.photoCount < 1000) {
-					color = '#025C02'
+					color = '#22AC38';
 				} else if(marker.photoCount < 2000) {
-					color = '#5C5102'
+					color = '#00A0E9';
 				} else if(marker.photoCount < 5000) {
-					color = '#5C0202'
+					color = '#006887';
 				} else if(marker.photoCount < 10000) {
-					color = '#AD2183'
-				} else {
-					color = '#2196AD'
+					color = '#601986';
+				} else if(marker.photoCount >= 10000) {
+					color = '#920783';
 				}
 
 				photoMarkerOptions.fillColor = color;
@@ -105,17 +105,11 @@ function gatherData(address) {
 							+ "&lon=" + longitude + "&accuracy=11\
 							&radius=5&format=json\
 							&per_page=500&nojsoncallback=?" 
-			console.log('flickrUrl: ', flickrUrl)
-			$.get(flickrUrl, function(response, status){
-				Running = true;
-				clearPhotoAreaMarkers();
+			GetRequests.push($.get(flickrUrl, function(response, status){
 				var pages = response.photos.pages;
 				markPhotos(response.photos.photo);
 				
 	    		for(var i=2; i<=response.photos.pages; i++) {
-	    			if(!Running)
-	    				break;
-
 	    			flickrUrl = "https://api.flickr.com/services/rest/?\
 							&method=flickr.photos.search\
 							&api_key=" + FlickrAPIKey
@@ -123,14 +117,13 @@ function gatherData(address) {
 							+ "&lon=" + longitude + "&accuracy=11\
 							&radius=5&format=json\
 							&per_page=500&page=" + i + "&nojsoncallback=?"
-	    			$.get(flickrUrl, function(response, status){
-	    				if(!Running)
-	    					return;
-						pages -= 1;
+	    			GetRequests.push($.get(flickrUrl, function(response, status){
+	    				pages -= 1;
+	    				// console.log(pages);
 						markPhotos(response.photos.photo);
-					});
+					}));
 	    		}
-	    	});
+	    	}));
 	    }
 	    else {
 	    	clearPhotoAreaMarkers();
@@ -141,7 +134,12 @@ function gatherData(address) {
 function initialize() {
 	var searchButton = document.getElementById('submit_address');
 	searchButton.onclick = function() {
-		Running = false;
+		while(GetRequests.length) {
+			var getRequest = GetRequests.pop();
+			getRequest.abort();
+		}
+
+		clearPhotoAreaMarkers();
 		var addressInput = document.getElementById('address_input');
 		gatherData(addressInput.value);
 	}
