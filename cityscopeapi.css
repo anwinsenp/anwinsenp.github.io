@@ -52,7 +52,7 @@ padding: 0;
 	border-radius: 15px;
 	border-style: solid;
     border-width: 1px;
-    border-color: #AAAAAA
+    border-color: #AAAAAA;
 }
 
 .an-layers {
@@ -131,4 +131,73 @@ padding: 0;
 	width: 30px;
 	height: 20px;
 	border-radius: 5px;
+}
+
+@media (max-height: 400px) {
+	.legend-color-name {
+	width: 90px;
+	height: 15px;
+	overflow: hidden;
+}
+
+.legend-color-1 {
+	background-color: #F39800;
+	width: 30px;
+	height: 15px;
+	border-radius: 5px;
+}
+
+.legend-color-2 {
+	background-color: #22AC38;
+	width: 30px;
+	height: 15px;
+	border-radius: 5px;
+}
+
+.legend-color-3 {
+	background-color: #00A0E9;
+	width: 30px;
+	height: 15px;
+	border-radius: 5px;
+}
+
+.legend-color-4 {
+	background-color: #006887;
+	width: 30px;
+	height: 15px;
+	border-radius: 5px;
+}
+
+.legend-color-5 {
+	background-color: #BE0081;
+	width: 30px;
+	height: 15px;
+	border-radius: 5px;
+}
+
+.legend-color-6 {
+	background-color: #601986;
+	width: 30px;
+	height: 15px;
+	border-radius: 5px;
+}
+
+.legend-color-7 {
+	background-color: #E60012;
+	width: 30px;
+	height: 15px;
+	border-radius: 5px;
+}
+
+footer {
+	display: none;
+}
+
+.control-panel  h3 {
+	font-size: 0.9em;
+}
+
+.control-panel h4 {
+	font-size: 0.9em;
+}
 }
