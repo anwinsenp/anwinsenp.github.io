@@ -83,7 +83,6 @@ function markPhotos(photos) {
 		var photoMarker = createPhotosAreaMarker(photoMarkerOptions);
 		PhotoMarkers.push(photoMarker);
 		LatLngBounds.extend(photoLocation);
-		Map.fitBounds(LatLngBounds);
 	}
 }
 
@@ -92,12 +91,14 @@ function gatherData(address) {
   	Geocoder.geocode(geocoderRequest, function(geocoderResults, geocoderStatus) {
 	    if (geocoderStatus === google.maps.GeocoderStatus.OK) {
 	    	var firstResult = geocoderResults[0];
-			Map.fitBounds(firstResult.geometry.bounds);
+			Map.setCenter(firstResult.geometry.location);
 			var latitude = firstResult.geometry.location.lat();
 			var longitude = firstResult.geometry.location.lng();
 			LatLngBounds = null;
 			LatLngBounds = new google.maps.LatLngBounds();
 			
+
+
 			var flickrUrl = "https://api.flickr.com/services/rest/?\
 							&method=flickr.photos.search\
 							&api_key=" + FlickrAPIKey
@@ -120,6 +121,11 @@ function gatherData(address) {
 	    			GetRequests.push($.get(flickrUrl, function(response, status){
 	    				pages -= 1;
 	    				// console.log(pages);
+	    				if(pages === 1) {
+	    					$("#wait-img").hide();
+	    					//Map.fitBounds(LatLngBounds);
+	    				}
+	    				
 						markPhotos(response.photos.photo);
 					}));
 	    		}
@@ -132,8 +138,13 @@ function gatherData(address) {
 }
 
 function initialize() {
+	$("#address_input").val('Andora');
+	gatherData($("#address_input").val());
+	$("#wait-img").show();
+
 	var searchButton = document.getElementById('submit_address');
 	searchButton.onclick = function() {
+		$("#wait-img").show();
 		while(GetRequests.length) {
 			var getRequest = GetRequests.pop();
 			getRequest.abort();
@@ -149,7 +160,7 @@ function initMap() {
     var centerLatLng = new google.maps.LatLng(HomeLatLng.x, HomeLatLng.y);
 	Map = new google.maps.Map(document.getElementById('map'), {
 		minZoom: 3,
-		zoom: 3,
+		zoom: 13,
 		center: centerLatLng
 	});
 
@@ -159,6 +170,7 @@ function initMap() {
 }
 
 function loadScript() {
+	$("#wait-img").hide();
     var script = document.createElement("script");
     script.type = "text/javascript";
     script.src = "http://maps.googleapis.com/maps/api/js?key=" 

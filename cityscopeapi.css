@@ -14,6 +14,13 @@ padding: 0;
 	left: 10px;
 	z-index: 100;
 	width: 100%;
+	opacity: 0.9;
+}
+
+.wait {
+	width: 24px;
+	height: 24px;
+	margin-right: 5px;
 }
 
 .well {
@@ -34,7 +41,7 @@ padding: 0;
 	top: 10px;
 	right: 10px;
 	height: 96vh;
-	width: 200px;
+	width: 250px;
 	z-index: 101;
 	background-color: #EEEEEE;
 	opacity: 0.8;
@@ -58,4 +65,64 @@ padding: 0;
 
 .an-layers > label {
 	vertical-align: bottom;
+}
+
+.legend {
+	text-align: center;
+	vertical-align: middle;
+}
+
+.legend-color-name {
+	width: 90px;
+	height: 20px;
+	overflow: hidden;
+}
+
+.legend-color-1 {
+	background-color: #F39800;
+	width: 30px;
+	height: 20px;
+	border-radius: 5px;
+}
+
+.legend-color-2 {
+	background-color: #FCC800;
+	width: 30px;
+	height: 20px;
+	border-radius: 5px;
+}
+
+.legend-color-3 {
+	background-color: #22AC38;
+	width: 30px;
+	height: 20px;
+	border-radius: 5px;
+}
+
+.legend-color-4 {
+	background-color: #00A0E9;
+	width: 30px;
+	height: 20px;
+	border-radius: 5px;
+}
+
+.legend-color-5 {
+	background-color: #006887;
+	width: 30px;
+	height: 20px;
+	border-radius: 5px;
+}
+
+.legend-color-6 {
+	background-color: #601986;
+	width: 30px;
+	height: 20px;
+	border-radius: 5px;
+}
+
+.legend-color-7 {
+	background-color: #920783;
+	width: 30px;
+	height: 20px;
+	border-radius: 5px;
 }

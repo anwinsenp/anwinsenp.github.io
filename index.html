@@ -16,6 +16,7 @@
                     col-sm-6 col-sm-offset-3
                     col-md-4 col-md-offset-4
                     well">
+          <img class="wait" id="wait-img" src="animatedEllipse.gif">
           <label>Location: </label>
           <input id="address_input" type="text" onkeydown="return triggerSubmit(event)"/>
           <button id="submit_address">Search</button>
@@ -26,41 +27,52 @@
         <div class="col-xs-12 
                     col-sm-12
                     col-md-12">
-            <h3>Layers</h3>
+            <h3>API Demo</h3>
             <hr class="separator">
+            <h4>Legend: Flickr Photos</h4>
+            <!-- <hr class="separator"> -->
 
-            <div id="controls">
-              <span class="an-layers">
-                <input type="checkbox" name="layertype"> 
-                <label>FLickr</label><br />
-              </span> 
-              <span class="an-layers">
-                <input type="checkbox" name="layertype"> 
-                <label>FLickr</label><br />
-              </span> 
-              <span class="an-layers">
-                <input type="checkbox" name="layertype"> 
-                <label>FLickr</label><br />
-              </span> 
-              <span class="an-layers">
-                <input type="checkbox" name="layertype"> 
-                <label>FLickr</label><br />
-              </span> 
-              <span class="an-layers">
-                <input type="checkbox" name="layertype"> 
-                <label>FLickr</label><br />
-              </span> 
-              <span class="an-layers">
-                <input type="checkbox" name="layertype"> 
-                <label>FLickr</label><br />
-              </span> 
+            <div id="legend">
+              <div>
+                <label class="legend-color-1"></label>
+                <label class="legend-color-name"> 0 - 199 </label>
+              </div>
+
+              <div>
+                <label class="legend-color-2"></label>
+                <label class="legend-color-name"> 200 - 499 </label>
+              </div>
+
+              <div>
+                <label class="legend-color-3"></label>
+                <label class="legend-color-name"> 500 - 999 </label>
+              </div>
+
+              <div>
+                <label class="legend-color-4"></label>
+                <label class="legend-color-name"> 1000 - 1999 </label>
+              </div>
+
+              <div>
+                <label class="legend-color-5"></label>
+                <label class="legend-color-name"> 2000 - 4999 </label>
+              </div>
+
+              <div>
+                <label class="legend-color-6"></label>
+                <label class="legend-color-name"> 5000 - 9999 </label>
+              </div>
+
+              <div>
+                <label class="legend-color-7"></label>
+                <label class="legend-color-name"> >= 10000 </label>
+              </div>
+               
             </div>
             <hr class="separator">
 
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.</p> 
+            tempor</p> 
 
           </div>
 
