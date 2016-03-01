@@ -37,8 +37,8 @@ function markPhotos(photos) {
 			center: photoLocation,
 			radius: 200,
 			map: Map,
-			fillColor: '#EC0033',
-			strokeColor: '#EC0033',
+			fillColor: '#F39800',
+			strokeColor: '#F39800',
 			fillOpacity: 0.9
 		}
 
@@ -51,23 +51,23 @@ function markPhotos(photos) {
 
 			if (distance <= marker.getRadius()) {
 				marker.photoCount += 1;
-				var color = '#EC0033';
+				var color = '#F39800';
 
 				if(marker.photoCount < 200) {
 					color = '#F39800';
 				} else if(marker.photoCount < 500) {
-					color = '#FCC800';
-				} else if(marker.photoCount < 1000) {
 					color = '#22AC38';
-				} else if(marker.photoCount < 2000) {
+				} else if(marker.photoCount < 1000) {
 					color = '#00A0E9';
-				} else if(marker.photoCount < 5000) {
+				} else if(marker.photoCount < 2000) {
 					color = '#006887';
+				} else if(marker.photoCount < 5000) {
+					color = '#BE0081';
 				} else if(marker.photoCount < 10000) {
 					color = '#601986';
-				} else if(marker.photoCount >= 10000) {
-					color = '#920783';
-				}
+				} else {
+					color = '#E60012';
+				}				
 
 				photoMarkerOptions.fillColor = color;
 				photoMarkerOptions.strokeColor = color;
